@@ -13,8 +13,10 @@ struct TaskListView: View {
     var body: some View {
         NavigationView{
             VStack(alignment: .leading) {
-                List(taskListVM.taskCellViewModels){ taskCellVM in
-                    TaskCell(taskCellVM: taskCellVM)
+                List{
+                    ForEach(taskListVM.taskCellViewModels){ taskCellVM in
+                        TaskCell(taskCellVM: taskCellVM)
+                    }
                 }
                 Button(action:{}){
                     HStack{
