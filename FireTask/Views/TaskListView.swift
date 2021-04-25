@@ -9,8 +9,24 @@ import SwiftUI
 
 struct TaskListView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView{
+            VStack(alignment: .leading) {
+                List(0 ..< 5){ item in
+                    Image(systemName:"circle")
+                        .resizable()
+                        .frame(width:20,height:20)
+                    Text("Implement the UI")
+                }
+                Button(action:{}){
+                    HStack{
+                        Image(systemName:"plus.circle.fill")
+                            .resizable()
+                            .frame(width:20,height:20)
+                        Text("Add new task")
+                    }.padding()
+                }.navigationBarTitle("Tasks")
+            }
+        }
     }
 }
 
