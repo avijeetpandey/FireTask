@@ -38,7 +38,7 @@ struct TaskCell: View {
     let task : Task
     var body: some View {
         HStack{
-            Image(systemName:"circle")
+            Image(systemName:task.completed ? "checkmark.circle.fill" : "circle")
                 .resizable()
                 .frame(width:20,height:20)
             Text(task.title)

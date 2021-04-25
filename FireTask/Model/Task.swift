@@ -16,6 +16,7 @@ struct Task : Identifiable {
 #if DEBUG
     let taskData = [
         Task(title: "Implement UI" , completed: true),
-        Task(title: "Integrate Firebase" , completed: false)
+        Task(title: "Integrate Firebase" , completed: false),
+        Task(title:"Launch App",completed:true)
     ]
 #endif
