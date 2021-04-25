@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct TaskListView: View {
+    let tasks = taskData
     var body: some View {
         NavigationView{
             VStack(alignment: .leading) {
-                List(0 ..< 5){ item in
-                    Image(systemName:"circle")
-                        .resizable()
-                        .frame(width:20,height:20)
-                    Text("Implement the UI")
+                List(tasks){ task in
+                    TaskCell(task:task)
                 }
                 Button(action:{}){
                     HStack{
@@ -23,9 +21,9 @@ struct TaskListView: View {
                             .resizable()
                             .frame(width:20,height:20)
                         Text("Add new task")
-                    }.padding()
-                }.navigationBarTitle("Tasks")
-            }
+                    }
+                }.padding()
+            }.navigationBarTitle("Tasks")
         }
     }
 }
@@ -33,5 +31,17 @@ struct TaskListView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         TaskListView()
+    }
+}
+
+struct TaskCell: View {
+    let task : Task
+    var body: some View {
+        HStack{
+            Image(systemName:"circle")
+                .resizable()
+                .frame(width:20,height:20)
+            Text(task.title)
+        }
     }
 }
